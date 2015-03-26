@@ -1,6 +1,6 @@
+include_recipe 'mongodb::mongo_gem'
 require 'resolv'
 require 'mongo'
-chef_gem 'mongo'
 
 connection = Mongo::Connection.new(node[:fqdn], node[:mongodb][:config][:port], :op_timeout => 5, :slave_ok => true)
 if ( connection.primary? == true )
