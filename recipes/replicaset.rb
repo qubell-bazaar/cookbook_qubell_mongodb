@@ -35,5 +35,6 @@ if (! (node[:mongodb][:replicaset_nodes].length % 2).zero? and node[:mongodb][:r
     end
   end
 else
+  include_recipe 'mongodb::mongo_gem'
   Chef::Log.error("Please set odd replicaset members number")
 end
